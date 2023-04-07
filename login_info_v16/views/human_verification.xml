@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_user_info" model="ir.actions.act_window">
+        <field name="name">user info</field>
+        <field name="res_model">user.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_user_info" name="Loged user"
+              action="action_user_info">
+    </menuitem>
+
+    <record id="user_info_form_view" model="ir.ui.view" >
+        <field name="name">user info form</field>
+        <field name="model">user.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="user" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user"/>
+
+                            <field name="date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="user_info_tree_view" model="ir.ui.view" >
+        <field name="name">user info form</field>
+        <field name="model">user.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user"/>
+                <field name="image"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
